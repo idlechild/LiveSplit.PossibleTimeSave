@@ -101,7 +101,7 @@ namespace LiveSplit.UI.Components
         public float MinimumHeight => InternalComponent.MinimumHeight;
 
         public string ComponentName
-        => (Settings.TotalTimeSave ? "Total " : "") + "Possible Time Save" 
+        => (Settings.TotalTimeSave ? "Total " : "") + "Time Save"
             + (Settings.Comparison == "Current Comparison" 
                 ? "" 
                 : " (" + CompositeComparisons.GetShortComparisonName(Settings.Comparison) + ")");
@@ -164,15 +164,13 @@ namespace LiveSplit.UI.Components
             if (!state.Run.Comparisons.Contains(comparison))
                 comparison = state.CurrentComparison;
             var comparisonName = CompositeComparisons.GetShortComparisonName(comparison);
-            var componentName = (Settings.TotalTimeSave ? "Total " : "") + "Possible Time Save" + (Settings.Comparison == "Current Comparison" ? "" : " (" + comparisonName + ")");
+            var componentName = (Settings.TotalTimeSave ? "Total " : "") + "Time Save" + (Settings.Comparison == "Current Comparison" ? "" : " (" + comparisonName + ")");
             
             if (InternalComponent.InformationName != componentName)
             {
                 InternalComponent.AlternateNameText.Clear();
                 if (componentName.Contains("Total"))
-                    InternalComponent.AlternateNameText.Add("Total Possible Time Save");
-                InternalComponent.AlternateNameText.Add("Possible Time Save");
-                InternalComponent.AlternateNameText.Add("Poss. Time Save");
+                    InternalComponent.AlternateNameText.Add("Total Time Save");
                 InternalComponent.AlternateNameText.Add("Time Save");
             }
             InternalComponent.LongestString = componentName;
